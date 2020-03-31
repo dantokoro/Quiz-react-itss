@@ -1,0 +1,56 @@
+[
+  {
+    "category": "動物",
+    "question": "What is this animal",
+    "a": "Duck",
+    "b": "Platypus",
+    "c": "Chicken",
+    "d": "Bird",
+    "answer": "b"
+  },
+  {
+    "category": "動物",
+    "question": "What is The Largest Animal",
+    "a": "Dinasaur",
+    "b": "Pig",
+    "c": "Blue Whale",
+    "d": "Elephant",
+    "answer": "c"
+  },
+  {
+    "category": "日本",
+    "question": "青い池はどこにありますか",
+    "a": "北海道",
+    "b": "沖縄",
+    "c": "広島",
+    "d": "大阪",
+    "answer": "a"
+  },
+  {
+    "category": "日本",
+    "question": "除夜の鐘は、大晦日に（　　）回つきます",
+    "a": "33",
+    "b": "57",
+    "c": "108",
+    "d": "205",
+    "answer": "c"
+  },
+  {
+    "category": "日本",
+    "question": "東京タワーの高さは (    )メートルです。",
+    "a": "222",
+    "b": "333",
+    "c": "333",
+    "d": "444",
+    "answer": "c"
+  },
+  {
+    "category": "日本",
+    "question": "大正の前の年号は何といいますか",
+    "a": "明治",
+    "b": "昭和",
+    "c": "慶応",
+    "d": "平成",
+    "answer": "a"
+  }
+]
