@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import "./App.css";
 import data from "./components/data.json";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Button } from "react-bootstrap";
+import {Container} from "react-bootstrap";
+import Header from "./components/Header.component.js";
+import CreateQuestion from "./components/CreateQuestion.component.js";
+
 
 class App extends Component {
   constructor() {
@@ -14,9 +17,13 @@ class App extends Component {
   render() {
     return (
     <div className="App">
-      {this.state.questionList.map((item, index) => (
+      <Container>
+      <Header></Header>
+      <CreateQuestion></CreateQuestion>
+      {/* {this.state.questionList.map((item, index) => (
         <p>{item.question}</p>
-      ))}
+      ))} */}
+      </Container>
     </div>
     );
   }
