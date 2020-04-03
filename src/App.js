@@ -4,6 +4,7 @@ import data from "./components/data.json";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
 import CategoryBar from "./CategoryBar.js";
+import QuestionCard from "./QuestionCard.js";
 
 class App extends Component {
   constructor() {
@@ -31,10 +32,10 @@ class App extends Component {
     const categoryList = Array.from(categorySet);
     const questions = this.state.questionList.map(item => {
       if (this.state.category === "All") {
-        return <p>{item.question}</p>;
+        return <QuestionCard item={item} />;
       } else {
         if (this.state.category === item.category) {
-          return <p>{item.question}</p>;
+          return <QuestionCard item={item} />;
         }
       }
     });
@@ -58,8 +59,12 @@ class App extends Component {
               onClick={category => this.handleClickCategory(category)}
             ></CategoryBar>
           </Row>
+          <Row className="mt-3 justify-content-md-center">
+            <Col md={4}>
+              {questions}
+            </Col>
+          </Row>
         </Container>
-        {questions}
       </div>
     );
   }
