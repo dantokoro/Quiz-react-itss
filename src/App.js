@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import "./App.css";
 import data from "./components/data.json";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Button, Row, Col, Container } from "react-bootstrap";
-import CategoryBar from "./CategoryBar.js";
+import {Button, Row, Col, Container } from "react-bootstrap";
+import CategoryBar from "./components/CategoryBar.js";
+import Header from "./components/Header.component.js";
+import CreateQuestion from "./components/CreateQuestion.component.js";
 
 class App extends Component {
   constructor() {
@@ -23,6 +25,9 @@ class App extends Component {
       category: category
     });
   }
+  createQuestion(questionObject){
+    this.setState(questionObject);
+  }
   render() {
     const categorySet = new Set();
     this.state.questionList.map(item => {
@@ -41,6 +46,7 @@ class App extends Component {
     return (
       <div className="App">
         <Container>
+          <Header></Header>
           <Row className="mt-3 justify-content-md-center">
             <Col>
               <Button
@@ -57,6 +63,9 @@ class App extends Component {
               titles={categoryList}
               onClick={category => this.handleClickCategory(category)}
             ></CategoryBar>
+          </Row>
+          <Row className="mt-3 justify-content-md-center">
+            <CreateQuestion categoryList={categoryList} createQuestion={this.createQuestion}></CreateQuestion>
           </Row>
         </Container>
         {questions}
