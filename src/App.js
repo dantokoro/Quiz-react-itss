@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {Button, Row, Col, Container } from "react-bootstrap";
 import CategoryBar from "./components/CategoryBar.js";
 import Header from "./components/Header.component.js";
+import Footer from "./components/Footer.component.js";
 import CreateQuestion from "./components/CreateQuestion.component.js";
 
 class App extends Component {
@@ -48,8 +49,8 @@ class App extends Component {
     });
     return (
       <div className="App">
+        <Header></Header>
         <Container>
-          <Header></Header>
           <Row className="mt-3 justify-content-md-center">
             <Col>
               <Button
@@ -72,6 +73,7 @@ class App extends Component {
           </Row>
         </Container>
         {questions}
+        <Footer></Footer>
       </div>
     );
   }
