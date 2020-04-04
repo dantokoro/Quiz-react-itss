@@ -1,3 +1,4 @@
+
 .logo {
   max-width: 20%;
 }
@@ -18,11 +19,10 @@
     line-height: 1.42857;
 }
 .btn {
-    background-color: DodgerBlue; /* Blue background */
-    border: none; /* Remove borders */
-    color: white; /* White text */
-    font-size: 16px; /* Set a font size */
-    cursor: pointer; /* Mouse pointer on hover */
+    background-color: DodgerBlue; 
+    border: none; 
+    color: white; 
+    cursor: pointer; 
 }
 
 input {
@@ -35,4 +35,47 @@ input {
 	font-family: montserrat;
 	color: #2C3E50;
 	font-size: 13px;
+}
+
+.footer, .header{
+  background-color: #f8f7f7;
+}
+hr {
+  margin-top: 40px;
+  border-width: 3px;
+}
+.team-heading {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.team-member {
+  padding: 32px 40px;
+  margin-top: 30px;
+  border: 1px solid #64626234;
+  text-align: center;
+  transition: all .35s;
+}
+
+.team-member:hover {
+  box-shadow: 0 0 38px rgba(81,107,117,.21);
+}
+
+.team-member img {
+  width: 180px;
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.team-member h3 {
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #383749;
+}
+
+.team-member h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #007bff;
 }
