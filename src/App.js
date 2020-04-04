@@ -14,6 +14,7 @@ class App extends Component {
       questionList: data,
       category: "All"
     };
+    this.createQuestion = this.createQuestion.bind(this);
   }
   handleClickAll() {
     this.setState({
@@ -26,7 +27,9 @@ class App extends Component {
     });
   }
   createQuestion(questionObject){
-    this.setState(questionObject);
+    this.setState({
+      questionList: [...this.state.questionList, questionObject]
+    });
   }
   render() {
     const categorySet = new Set();
@@ -73,7 +76,4 @@ class App extends Component {
     );
   }
 }
-// {this.state.questionList.map((item, index) => (
-//   <p>{item.question}</p>
-// ))}
 export default App;
