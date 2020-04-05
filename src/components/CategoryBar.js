@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "./App.css";
+import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Col } from "react-bootstrap";
 
@@ -9,7 +9,7 @@ class CategoryBar extends Component {
       return (
         <Col md="auto">
           <Button
-            className="px-5"
+            className="btn-size"
             variant="outline-primary"
             onClick={() => this.props.onClick(item)}
           >
