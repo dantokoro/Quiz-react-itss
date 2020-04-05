@@ -15,6 +15,12 @@ class App extends Component {
       questionList: data,
       category: "All"
     };
+    const categorySet = new Set();
+    this.state.questionList.map(item => {
+      categorySet.add(item.category);
+    });
+    //const categoryList = Array.from(categorySet);
+    this.state.categorySet = categorySet;
     this.createQuestion = this.createQuestion.bind(this);
   }
   handleClickAll() {
@@ -28,16 +34,19 @@ class App extends Component {
     });
   }
   createQuestion(questionObject){
+    const categorySet = this.state.categorySet;
+    categorySet.add(questionObject.category);
     this.setState({
-      questionList: [...this.state.questionList, questionObject]
+      questionList: [...this.state.questionList, questionObject],
+      categorySet: categorySet
     });
   }
   render() {
-    const categorySet = new Set();
-    this.state.questionList.map(item => {
-      categorySet.add(item.category);
-    });
-    const categoryList = Array.from(categorySet);
+    // const categorySet = new Set();
+    // this.state.questionList.map(item => {
+    //   categorySet.add(item.category);
+    // });
+    const categoryList = Array.from(this.state.categorySet);
     const questions = this.state.questionList.map(item => {
       if (this.state.category === "All") {
         return <p>{item.question}</p>;
@@ -54,7 +63,7 @@ class App extends Component {
           <Row className="mt-3 justify-content-md-center">
             <Col>
               <Button
-                className="px-5"
+                className="btn-size"
                 variant="outline-primary"
                 onClick={() => this.handleClickAll()}
               >
