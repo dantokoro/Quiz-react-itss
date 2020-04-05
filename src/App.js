@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import "./App.css";
 import data from "./components/data.json";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Button, Row, Col, Container } from "react-bootstrap";
-import CategoryBar from "./CategoryBar.js";
-import QuestionCard from "./QuestionCard.js";
+import { Button, Row, Col, Container } from "react-bootstrap";
+import CategoryBar from "./components/CategoryBar.js";
+import Header from "./components/Header.component.js";
+import Footer from "./components/Footer.component.js";
+import CreateQuestion from "./components/CreateQuestion.component.js";
+import QuestionCard from "./components/QuestionCard.js";
 
 class App extends Component {
   constructor() {
@@ -13,6 +16,13 @@ class App extends Component {
       questionList: data,
       category: "All"
     };
+    const categorySet = new Set();
+    this.state.questionList.map(item => {
+      categorySet.add(item.category);
+    });
+    //const categoryList = Array.from(categorySet);
+    this.state.categorySet = categorySet;
+    this.createQuestion = this.createQuestion.bind(this);
   }
   handleClickAll() {
     this.setState({
@@ -24,12 +34,20 @@ class App extends Component {
       category: category
     });
   }
-  render() {
-    const categorySet = new Set();
-    this.state.questionList.map(item => {
-      categorySet.add(item.category);
+  createQuestion(questionObject) {
+    const categorySet = new Set(this.state.categorySet);
+    categorySet.add(questionObject.category);
+    this.setState({
+      questionList: [...this.state.questionList, questionObject],
+      categorySet: categorySet
     });
-    const categoryList = Array.from(categorySet);
+  }
+  render() {
+    // const categorySet = new Set();
+    // this.state.questionList.map(item => {
+    //   categorySet.add(item.category);
+    // });
+    const categoryList = Array.from(this.state.categorySet);
     const questions = this.state.questionList.map(item => {
       if (this.state.category === "All") {
         return (
@@ -49,11 +67,12 @@ class App extends Component {
     });
     return (
       <div className="App">
+        <Header></Header>
         <Container>
           <Row className="mt-3 justify-content-md-center">
             <Col>
               <Button
-                className="px-5"
+                className="btn-size"
                 variant="outline-primary"
                 onClick={() => this.handleClickAll()}
               >
@@ -67,15 +86,16 @@ class App extends Component {
               onClick={category => this.handleClickCategory(category)}
             ></CategoryBar>
           </Row>
+          <Row className="mt-3 justify-content-md-center">
+            <CreateQuestion categoryList={categoryList} createQuestion={this.createQuestion}></CreateQuestion>
+          </Row>
           <Row className="mt-3">
             {questions}
           </Row>
         </Container>
+        <Footer></Footer>
       </div >
     );
   }
 }
-// {this.state.questionList.map((item, index) => (
-//   <p>{item.question}</p>
-// ))}
 export default App;
