@@ -9,6 +9,7 @@ class Header extends Component {
         <Container>
           <Image
             src="https://quiztime123.000webhostapp.com/img/logo.png"
+            alt="logo picture"
             className="logo"
           />
           <hr/>
