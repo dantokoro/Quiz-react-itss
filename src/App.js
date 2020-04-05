@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import "./App.css";
 import data from "./components/data.json";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Button, Row, Col, Container } from "react-bootstrap";
+import { Button, Row, Col, Container } from "react-bootstrap";
 import CategoryBar from "./components/CategoryBar.js";
 import Header from "./components/Header.component.js";
 import Footer from "./components/Footer.component.js";
 import CreateQuestion from "./components/CreateQuestion.component.js";
+import QuestionCard from "./components/QuestionCard.js";
 
 class App extends Component {
   constructor() {
@@ -33,7 +34,7 @@ class App extends Component {
       category: category
     });
   }
-  createQuestion(questionObject){
+  createQuestion(questionObject) {
     const categorySet = new Set(this.state.categorySet);
     categorySet.add(questionObject.category);
     this.setState({
@@ -49,10 +50,18 @@ class App extends Component {
     const categoryList = Array.from(this.state.categorySet);
     const questions = this.state.questionList.map(item => {
       if (this.state.category === "All") {
-        return <p>{item.question}</p>;
+        return (
+          <Col md={4}>
+            <QuestionCard item={item} />
+          </Col>
+        );
       } else {
         if (this.state.category === item.category) {
-          return <p>{item.question}</p>;
+          return (
+            <Col md={4}>
+              <QuestionCard item={item} />
+            </Col>
+          );
         }
       }
     });
@@ -80,10 +89,12 @@ class App extends Component {
           <Row className="mt-3 justify-content-md-center">
             <CreateQuestion categoryList={categoryList} createQuestion={this.createQuestion}></CreateQuestion>
           </Row>
+          <Row className="mt-3">
+            {questions}
+          </Row>
         </Container>
-        {questions}
         <Footer></Footer>
-      </div>
+      </div >
     );
   }
 }
