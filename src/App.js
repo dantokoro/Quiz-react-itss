@@ -34,7 +34,7 @@ class App extends Component {
     });
   }
   createQuestion(questionObject){
-    const categorySet = this.state.categorySet;
+    const categorySet = new Set(this.state.categorySet);
     categorySet.add(questionObject.category);
     this.setState({
       questionList: [...this.state.questionList, questionObject],
