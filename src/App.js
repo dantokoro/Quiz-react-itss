@@ -48,18 +48,18 @@ class App extends Component {
     //   categorySet.add(item.category);
     // });
     const categoryList = Array.from(this.state.categorySet);
-    const questions = this.state.questionList.map(item => {
+    const questions = this.state.questionList.map((item, index) => {
       if (this.state.category === "All") {
         return (
           <Col md={4}>
-            <QuestionCard item={item} />
+            <QuestionCard item={item} index={index} />
           </Col>
         );
       } else {
         if (this.state.category === item.category) {
           return (
             <Col md={4}>
-              <QuestionCard item={item} />
+              <QuestionCard item={item} index={index} />
             </Col>
           );
         }
