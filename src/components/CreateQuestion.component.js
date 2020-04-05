@@ -158,10 +158,10 @@ class CreateQuestion extends Component {
               <Form.Group controlId="exampleForm.SelectCustom">
                 <Form.Label>答え</Form.Label>
                 <Form.Control as="select" onChange={this.onAnswerChange} custom>
-                  <option>A</option>
-                  <option>B</option>
-                  <option>C</option>
-                  <option>D</option>
+                  <option>a</option>
+                  <option>b</option>
+                  <option>c</option>
+                  <option>d</option>
                 </Form.Control>
               </Form.Group>
             </Form>
