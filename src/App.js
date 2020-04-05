@@ -32,10 +32,18 @@ class App extends Component {
     const categoryList = Array.from(categorySet);
     const questions = this.state.questionList.map(item => {
       if (this.state.category === "All") {
-        return <QuestionCard item={item} />;
+        return (
+          <Col md={4}>
+            <QuestionCard item={item} />
+          </Col>
+        );
       } else {
         if (this.state.category === item.category) {
-          return <QuestionCard item={item} />;
+          return (
+            <Col md={4}>
+              <QuestionCard item={item} />
+            </Col>
+          );
         }
       }
     });
@@ -59,13 +67,11 @@ class App extends Component {
               onClick={category => this.handleClickCategory(category)}
             ></CategoryBar>
           </Row>
-          <Row className="mt-3 justify-content-md-center">
-            <Col md={4}>
-              {questions}
-            </Col>
+          <Row className="mt-3">
+            {questions}
           </Row>
         </Container>
-      </div>
+      </div >
     );
   }
 }
