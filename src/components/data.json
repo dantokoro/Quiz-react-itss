@@ -1,7 +1,7 @@
 [
   {
     "category": "動物",
-    "question": "What is this animal",
+    "question": "Which of these are mammals?",
     "a": "Duck",
     "b": "Platypus",
     "c": "Chicken",
