@@ -34,28 +34,28 @@ class QuestionCard extends Component {
                             <Form.Check
                                 name="option"
                                 type="radio"
-                                id="default-radio"
+                                id={`${this.props.index}-a`}
                                 label={`a: ${this.props.item.a}`}
                                 onChange={() => this.handleSelect('a')}
                             />
                             <Form.Check
                                 name="option"
                                 type="radio"
-                                id="default-radio"
+                                id={`${this.props.index}-b`}
                                 label={`b: ${this.props.item.b}`}
                                 onChange={() => this.handleSelect('b')}
                             />
                             <Form.Check
                                 name="option"
                                 type="radio"
-                                id="default-radio"
+                                id={`${this.props.index}-c`}
                                 label={`c: ${this.props.item.c}`}
                                 onChange={() => this.handleSelect('c')}
                             />
                             <Form.Check
                                 name="option"
                                 type="radio"
-                                id="default-radio"
+                                id={`${this.props.index}-d`}
                                 label={`d: ${this.props.item.d}`}
                                 onChange={() => this.handleSelect('d')}
                             />
