@@ -12,7 +12,7 @@ class Footer extends Component {
           <Row>
             <div className="col-12">
               <div className="team-heading">
-                <h2 className="entry-title">水2クラス 〜 チーム6</h2>
+                <h2 className="entry-title">木2クラス 〜 チーム6</h2>
               </div>
             </div>
             <br></br>
